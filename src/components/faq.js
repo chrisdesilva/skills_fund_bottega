@@ -41,7 +41,7 @@ const FAQ = () => {
                <div onClick={() => showq2(!q2)}><h3 className="text-lg uppercase text-primary flex items-center cursor-pointer"><span className="text-sm"><FaAngleDown /></span>when will i receive my living stipend?</h3></div>
                <Collapse isOpened={q2} springConfig={{stiffness: 150, damping: 30}}>
                          
-                         {faq.costOfLivingPrograms && <p><strong>Only the {faq.costOfLivingPrograms} {faq.multCostOfLivingPrograms ? <span>are</span>: <span>is</span>} eligible for cost of living.</strong></p>}
+                         {faq.costOfLivingPrograms && <p><strong>Only {faq.costOfLivingPrograms} {faq.multCostOfLivingPrograms ? <span>are</span>: <span>is</span>} eligible for cost of living.</strong></p>}
 
                          <p>Your lump sum living stipend will be sent to you on the second Wednesday after your program start. You can elect to have your cost of living disbursed via electronic funds transfer or mailed directly to the address provided in their loan application.</p>
                          <p className="mb-0 pb-4">Please allow 1 - 5 business days for your electronic funds transfer to be reflected in your bank account. For all students who elect to have funds mailed to their address, please allow 5 - 10 business days for your check to arrive via U.S. Standard Mail.</p>
