@@ -3,6 +3,7 @@ import React from 'react'
 import { UnmountClosed as Collapse } from 'react-collapse'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import Popup from '../components/popup'
 import Banner from '../components/banner'
 import LeadContent from '../components/leadcontent'
 import ThreeSteps from '../components/threesteps'
@@ -27,7 +28,8 @@ class Homepage extends React.Component {
           termInfo: false,
           faq: false,
           eligibility: false,
-          contact: false
+          contact: false,
+          popup: true
         }
         this.threesteps = React.createRef();
         this.apply = React.createRef();
@@ -40,6 +42,22 @@ class Homepage extends React.Component {
         //   action: 'click',
         //   label: 'banner'
         // })
+      }
+
+      trackPopup = () => {
+        ReactGA.event({
+          category: `Student Lead Capture | ${this.props.schoolName}`,
+          action: 'click',
+          label: 'popup'
+        })
+      }
+
+      trackStatic = () => {
+        ReactGA.event({
+          category: `Student Lead Capture | ${this.props.schoolName}`,
+          action: 'click',
+          label: 'static'
+        })
       }
     
       activateMoreInfo = () => {
@@ -82,6 +100,14 @@ class Homepage extends React.Component {
         return (
           <Layout>
             <SEO title={this.props.schoolName} />
+            {this.state.popup &&
+              <Popup 
+                IP={this.props.IP}
+                pageUri={this.props.pageUri}
+                schoolName={this.props.schoolName}
+                trackGA={this.trackPopup}
+              />
+            }
             <Banner 
                 howItWorksOnClick={this.scrollToContent}  
                 applyNowOnClick={this.scrollToApply}  
@@ -90,31 +116,23 @@ class Homepage extends React.Component {
               schoolName={this.props.schoolName}
             />
             <ThreeSteps
-              onClick={this.scrollToApply} 
+              onClick={this.scrollToApply2} 
               ref={this.threesteps}
               schoolName={this.props.schoolName}
             />
             <LoanCalculator />
-            {applicationsLive ?
-              <LoanApp 
-                ref={this.apply}
-                IP={this.props.IP}
-                pageUri={this.props.pageUri}
-                schoolName={this.props.schoolName}
-              /> 
-              :
-              <DisabledApplication 
-                ref={this.apply}
-                IP={this.props.IP}
-                pageUri={this.props.pageUri}
-                schoolName={this.props.schoolName}
-              />
-            }
+            <LoanApp 
+              ref={this.apply}
+              IP={this.props.IP}
+              pageUri={this.props.pageUri}
+              schoolName={this.props.schoolName}
+            />
             <Reviews />
             <LeadCaptureForm 
               IP={this.props.IP}
               pageUri={this.props.pageUri}
               schoolName={this.props.schoolName}
+              trackGA={this.trackStatic}
             />
             <InfoButtonContainer 
               terms={this.activateMoreInfo}
@@ -137,7 +155,7 @@ class Homepage extends React.Component {
                 <ContactForm formName={this.props.formName}/>
             </Collapse>
             <ApplyFooter
-              onClick={this.scrollToApply}
+              onClick={this.scrollToApply3}
             />
           </Layout>
         )
