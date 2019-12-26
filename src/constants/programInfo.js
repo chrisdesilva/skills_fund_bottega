@@ -150,7 +150,7 @@ export const moreThanSixPrograms = false // set to true if there are 7 or more p
 export const programLoanInfo = [ // update with program names and corresponding loan URLs with market segment code from Master Loan Parameters
     {
         name: "Full-Time On Campus",
-        url: "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SKBOTSD17",
+        url: "https://my.skills.fund/application?lenderCode=SKBOTSD17",
         loanInfo: { // match loanInfo in first metro below
             maxLoanAmt: 16000,
             loanTerm36: true,
@@ -213,7 +213,7 @@ export const programLoanInfo = [ // update with program names and corresponding 
     },
     {
         name: "Full-Time Remote",
-        url: "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SKBOTSDR17",
+        url: "https://my.skills.fund/application?lenderCode=SKBOTSDR17",
         loanInfo: { // match loanInfo in first metro below
             maxLoanAmt: 16000,
             loanTerm36: true,
@@ -262,7 +262,7 @@ export const programLoanInfo = [ // update with program names and corresponding 
     },
     {
         name: "Part-Time Remote",
-        url: "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SKBOTSDP17",
+        url: "https://my.skills.fund/application?lenderCode=SKBOTSDP17",
         loanInfo: { // match loanInfo in first metro below
             maxLoanAmt: 7500,
             loanTerm36: true,
