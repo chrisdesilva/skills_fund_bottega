@@ -49,8 +49,7 @@ const FAQ = () => {
                 {program.col ? (
                   <span>
                     You may also borrow up to {program.colAmount} for cost of
-                    living. See table above the loan calculator for a breakdown
-                    by location.
+                    living.
                   </span>
                 ) : (
                   <span>Cost of living is not available for this program.</span>
